@@ -81,7 +81,7 @@
 .rb-inquiries { position: relative; display: grid; grid-template-columns: 1fr 2fr; align-items: baseline; padding-block: clamp(66px, 7.4vw, 134px); }
 .rb-inquiries .rb-textlink { justify-self: start; font: 400 clamp(40px, 5.1vw, 82px)/1.08 var(--rb-serif); letter-spacing: -.05em; gap: .45em; }
 .rb-inquiries .rb-arrow { font-size: .65em; }
-.rb-foot { border-top: 1px solid var(--rb-line); padding-block: 28px 42px; }
+.rb-foot { padding-block: 28px 42px; }
 .rb-foot .rb-wordmark { font-size: 26px; }
 .rb-foot p { margin-top: 3px; color: var(--rb-muted); font-size: 12px; }
 .rb-detail-top { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); align-items: end; gap: 8%; padding-block: clamp(56px, 7vw, 118px); }
@@ -205,7 +205,7 @@
         <input type="hidden" id="context" name="context" value="">
         <input type="hidden" id="request_id" name="request_id" value="">
         <input type="hidden" name="origin" value="corporate">
-        <button type="submit">Send <span aria-hidden="true" class="rb-arrow">→</span></button>
+        <button type="submit" hidden>Send</button>
         <p role="status" data-enquiry-status></p>
       </form>
     </section>
