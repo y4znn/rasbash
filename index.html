@@ -30,6 +30,7 @@
   color: var(--rb-ink);
   font: 400 16px/1.5 var(--rb-sans);
   margin: 0;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 .corporate-site *, .corporate-site *::before, .corporate-site *::after { box-sizing: border-box; }
@@ -69,8 +70,8 @@
 .rb-practice-pair { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: start; gap: clamp(28px, 5vw, 80px); }
 .rb-practice { position: relative; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: none; padding: 0; background: transparent; }
 .rb-practice > span:empty { position: absolute; top: 0; }
-.rb-practice h3 { margin: 0 0 10px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; white-space: nowrap; }
-.rb-practice p { max-width: none; margin: 0; font-size: clamp(12px, .95vw, 14px); color: var(--rb-muted); background: transparent; white-space: nowrap; }
+.rb-practice h3 { margin: 0 0 10px; font: 700 clamp(17px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; }
+.rb-practice p { max-width: none; margin: 0; font-size: clamp(13px, .95vw, 14px); line-height: 1.45; color: var(--rb-muted); background: transparent; }
 .rb-textlink { display: inline-flex; align-items: center; justify-content: flex-start; gap: .65em; min-height: 44px; font: 500 16px/1.4 var(--rb-sans); letter-spacing: -.03em; }
 .rb-textlink .rb-arrow { font-size: 1em; }
 .rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; min-height: clamp(440px, 68vh, 740px); display: flex; align-items: center; }
@@ -96,19 +97,23 @@
   .rb-head { min-height: 73px; }
 }
 @media (max-width: 767px) {
-  .rb-practice-root { width: 100%; max-width: 480px; }
-  .rb-practice-pair { grid-template-columns: minmax(0, 480px); gap: 28px; }
-  .rb-practice h3, .rb-practice p { white-space: normal; }
+  .rb-practice-root { width: 100%; padding-bottom: 24px; }
+  .rb-practice-pair { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
 @media (max-width: 600px) {
-  .corporate-site { --rb-space: clamp(18px, 5.4vw, 30px); }
-  .rb-head { gap: 12px; min-height: 65px; }
+  .corporate-site { --rb-space: clamp(20px, 5.4vw, 28px); }
+  .rb-head { gap: 12px; min-height: 64px; padding-block: 12px; }
   .rb-wordmark { font-size: 24px; }
+  .rb-hero { min-height: clamp(320px, 54svh, 480px); }
+  .rb-opening { padding-block: 40px; }
+  .rb-opening h1 { font-size: clamp(30px, 9.2vw, 44px); }
+  .rb-practices { padding-block: 36px 28px; }
+  .rb-practice-root h2 { font-size: clamp(28px, 7.5vw, 36px); }
   .rb-nav { column-gap: clamp(9px, 2.4vw, 14px); }
   .rb-nav a { font-size: 12px; }
   .rb-inquiries { grid-template-columns: 1fr; gap: 19px; padding-block: 45px; }
   .rb-inquiries .rb-textlink { font-size: clamp(27px, 7vw, 46px); }
-  .rb-foot { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 21px 24px; }
+  .rb-foot { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 24px 32px; }
   .rb-foot .rb-nav { column-gap: 24px; }
   .rb-detail-top, .rb-detail-body { grid-template-columns: 1fr; }
   .rb-detail-top { padding-block: 28px; gap: 24px; }
@@ -116,29 +121,27 @@
   .rb-detail-lead { font-size: 21px; }
   .rb-detail-body { gap: 25px; padding-block: 30px 40px; }
 }
-@media (max-width: 370px) {
-  .rb-head { flex-direction: column; align-items: start; gap: 0; padding-top: 5px; }
-  .rb-head .rb-nav { width: 100%; justify-content: space-between; }
-  .rb-head .rb-nav a { font-size: 13px; }
-}
 @media (prefers-reduced-motion: reduce) {
   .corporate-site *, .corporate-site *::before, .corporate-site *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
 }
 .rb-contact { display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding-block: clamp(32px, 4vw, 64px) clamp(56px, 7vw, 112px); }
-.rb-contact h2 { margin: 0 0 10px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; }
-.rb-contact-sub { margin: 0 0 28px; font-size: clamp(12px, .95vw, 14px); color: var(--rb-muted); }
+.rb-contact h2 { margin: 0 0 10px; font: 700 clamp(17px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; }
+.rb-contact-sub { margin: 0 0 28px; font-size: clamp(13px, .95vw, 14px); line-height: 1.45; color: var(--rb-muted); }
 .rb-contact form { width: 100%; max-width: 28rem; }
 .rb-contact .rb-step + .rb-step { margin-top: 20px; animation: rb-step-in 220ms ease-out; }
 @keyframes rb-step-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.rb-contact .rb-line-input { display: block; width: 100%; font: inherit; font-size: 15px; color: var(--rb-ink); background: transparent; border: none; border-bottom: 1px solid #0D0D0D; border-radius: 0; padding: 10px 0 8px; line-height: 1.5; }
-.rb-contact .rb-line-input::placeholder { color: #8a8a8a; }
+.rb-contact .rb-line-input { display: block; width: 100%; font: inherit; font-size: 16px; color: var(--rb-ink); background: transparent; border: none; border-bottom: 1px solid #0D0D0D; border-radius: 0; -webkit-appearance: none; appearance: none; padding: 10px 0 8px; line-height: 1.5; }
+.rb-contact .rb-line-input::placeholder { color: #8a8a8a; font-size: 14px; }
 .rb-contact .rb-line-input:focus { outline: none; border-bottom: 2px solid #0D0D0D; }
 .rb-contact button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 16px; font-weight: 500; padding: 11px 18px; min-height: 48px; cursor: pointer; margin-top: 24px; }
 .rb-contact button .rb-arrow { margin-left: 0; font-size: 1em; }
 .rb-contact button:hover { color: var(--rb-ink); background: #fff; }
-.rb-contact [role=status]:not(:empty) { margin-top: 14px; }
+.rb-contact [role=status]:not(:empty) { margin-top: 14px; font-size: 14px; }
 @media (max-width: 650px) {
-  .rb-contact { padding-block: 39px 57px; }
+  .rb-contact { padding-block: 24px 48px; }
+  .rb-contact-sub { margin-bottom: 22px; }
+  .rb-contact form { max-width: 100%; }
+  .rb-contact .rb-line-input::placeholder { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -200,14 +203,14 @@
     </section>
     <section class="rb-contact rb-bound" id="contact" aria-labelledby="rb-contact-title">
       <h2 id="rb-contact-title">What are you looking for?</h2>
-      <p class="rb-contact-sub">Leave your email below, we’ll be in touch within 24 hours</p>
+      <p class="rb-contact-sub">Leave your contact below, we’ll be in touch within 24 hours</p>
       <form id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="7baa3c44-0f14-4bcd-9b18-c1be3416aedf">
         <input type="hidden" name="subject" value="New RASBASH Inquiry">
         <input type="hidden" name="from_name" value="RASBASH Website">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="rb-step" data-step="1">
-          <input id="reply" class="rb-line-input" name="contact" type="text" autocomplete="email" maxlength="254" aria-label="Email address, phone number, or Signal username" placeholder="Email address / Phone number / Signal username" required>
+          <input id="reply" class="rb-line-input" name="contact" type="text" autocomplete="email" maxlength="254" aria-label="Email, phone number, or signal username" placeholder="email/phone number/signal username" required>
         </div>
         <div class="rb-step" data-step="2" hidden>
           <input id="full-name" class="rb-line-input" name="name" type="text" autocomplete="name" maxlength="160" aria-label="Full name" placeholder="Full name">
