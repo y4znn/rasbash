@@ -54,7 +54,7 @@
 .rb-nav a:hover, .rb-textlink:hover, .rb-detail-top > div > a:hover { text-decoration: underline; text-underline-offset: .25em; }
 .rb-hero { background: #161616; color: #f7f7f5; }
 .rb-opening { position: relative; padding-block: clamp(52px, 7vw, 112px); }
-.rb-opening h1 { font: 400 clamp(34px, 7.6vw, 120px)/.98 var(--rb-sans); letter-spacing: -.066em; }
+.rb-opening h1 { font: 400 clamp(36px, 6.8vw, 108px)/1.02 var(--rb-sans); letter-spacing: -.055em; color: #f7f7f5; text-shadow: 0 2px 24px rgba(0, 0, 0, .32); }
 .rb-opening h1 span { display: block; }
 .rb-intro { display: flex; flex-wrap: wrap; gap: 2px 36px; justify-content: space-between; align-items: center; border-top: 1px solid #737373; padding-top: 12px; margin-top: clamp(25px, 4vw, 60px); }
 .rb-intro p { font-size: clamp(15px, 1.4vw, 21px); }
@@ -71,12 +71,9 @@
 .rb-practice > span:empty { position: absolute; top: 0; }
 .rb-practice h3 { margin: 0 0 12px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; white-space: nowrap; }
 .rb-practice p { max-width: none; margin: 0; font-size: clamp(12px, .95vw, 14px); color: #0D0D0D; background: transparent; white-space: nowrap; }
-.rb-tagline-wrap { position: sticky; top: 0; z-index: 100; height: 0; overflow: visible; pointer-events: none; }
-.rb-tagline-band { position: relative; top: 16px; pointer-events: auto; width: min(calc(100% - clamp(24px, 3vw, 48px)), 1536px); min-height: 64px; margin: 0 auto; padding: 14px clamp(20px, 2.4vw, 32px); display: flex; align-items: center; justify-content: flex-start; text-align: left; border-radius: 10px; background: rgba(24, 24, 24, .38); border: 1px solid rgba(255, 255, 255, .14); backdrop-filter: blur(20px) saturate(125%); -webkit-backdrop-filter: blur(20px) saturate(125%); box-shadow: 0 8px 30px rgba(0, 0, 0, .16); }
-.rb-band-text { font: 400 clamp(15px, 1.4vw, 20px)/1.25 var(--rb-sans); letter-spacing: -.025em; color: #f7f7f5; margin: 0; }
 .rb-textlink { display: inline-flex; align-items: center; justify-content: flex-start; gap: .65em; min-height: 44px; font: 500 16px/1.4 var(--rb-sans); letter-spacing: -.03em; }
 .rb-textlink .rb-arrow { font-size: 1em; }
-.rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; min-height: clamp(440px, 68vh, 740px); display: flex; align-items: flex-start; justify-content: center; }
+.rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; min-height: clamp(440px, 68vh, 740px); display: flex; align-items: center; }
 .rb-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 10, .32) 0%, rgba(10, 10, 10, .14) 48%, rgba(10, 10, 10, .62) 100%); pointer-events: none; z-index: 1; }
 .rb-hero .rb-opening { z-index: 2; }
 .rb-ground-film { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: contrast(1.06) saturate(.85); pointer-events: none; }
@@ -181,13 +178,11 @@
     addEventListener('hashchange', restoreAtlasBookmark);
   </script></head>
     <body class="corporate-site"><a class="corporate-skip" href="#corporate-main">Skip to content</a><noscript><style>.atlas-bookmark{display:none}.atlas-bookmark:target{display:block;padding:1em}</style><p class="atlas-bookmark" id="world-atlas"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="connections"><a href="/atlas/#connections">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="directory"><a href="/atlas/#directory">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-heading"><a href="/atlas/#atlas-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="reader"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mapcanvas"><a href="/atlas/#mapcanvas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="main"><a href="/atlas/#main">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mainbody"><a href="/atlas/#mainbody">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-query"><a href="/atlas/#atlas-query">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="cover-title"><a href="/atlas/#cover-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="gateway-heading"><a href="/atlas/#gateway-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="advisory-intro-title"><a href="/atlas/#advisory-intro-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="map-svg"><a href="/atlas/#map-svg">Open this section of The Corridor</a></p></noscript><header class="rb-head rb-bound"><div class="rb-brand"><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a></div></header><main id="corporate-main" class="rb-home" tabindex="-1">
-    <div class="rb-tagline-wrap">
-      <div class="rb-tagline-band">
-        <h1 id="rb-title" class="rb-band-text">No one sees enough alone</h1>
-      </div>
-    </div>
     <section class="rb-hero" aria-labelledby="rb-title">
       <video class="rb-ground-film" src="art/hero-bg.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+      <div class="rb-opening rb-bound">
+        <h1 id="rb-title"><span>No one sees</span> <span>enough alone</span></h1>
+      </div>
     </section>
     <section class="rb-practices rb-bound" id="practice" aria-labelledby="rb-practices-title">
       <div class="rb-practice-diagram">
