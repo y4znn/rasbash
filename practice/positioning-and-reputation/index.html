@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Positioning and Reputation | RASBASH</title><meta name="description" content="What do you wish people understood about your position?"><meta property="og:title" content="Positioning and Reputation | RASBASH"><meta property="og:description" content="What do you wish people understood about your position?">
+    <meta name="theme-color" content="#ffffff"><link rel="icon" href="/mark.svg">
+    <style id="corporate-styles">@font-face {
+  font-family: 'Courier Prime';
+  src: local('Courier Prime'), url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@5.3.0/latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: local('Courier Prime Bold'), url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@5.3.0/latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+.corporate-site {
+  --rb-ink: #161616;
+  --rb-muted: #525252;
+  --rb-line: #d3d3d3;
+  --rb-space: clamp(24px, 5.15vw, 96px);
+  --rb-sans: 'Courier Prime', 'Courier New', Courier, monospace;
+  --rb-serif: var(--rb-sans);
+  background: #fff;
+  color: var(--rb-ink);
+  font: 400 16px/1.5 var(--rb-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.corporate-site *, .corporate-site *::before, .corporate-site *::after { box-sizing: border-box; }
+.corporate-site :where(h1, h2, p, ul, figure) { margin: 0; }
+.corporate-site a { color: inherit; text-decoration: none; }
+.corporate-site button { font: inherit; color: inherit; }
+.corporate-site img { display: block; max-width: 100%; }
+.corporate-site [hidden] { display: none !important; }
+.corporate-site :is(a, button):focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.corporate-site main:focus { outline: none; }
+.corporate-skip { position: absolute; z-index: 2; top: 8px; left: var(--rb-space); padding: 10px 16px; background: #fff; transform: translateY(-180%); }
+.corporate-skip:focus { transform: translateY(0); }
+.corporate-site ::selection { background: #d9d9d9; color: #111; }
+.rb-bound { width: min(calc(100% - var(--rb-space) * 2), 1536px); margin-inline: auto; }
+.rb-head, .rb-foot { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.rb-head { min-height: 88px; border-bottom: 1px solid var(--rb-line); }
+.rb-wordmark { display: inline-flex; align-items: center; min-height: 44px; font-size: clamp(26px, 2.5vw, 39px); padding-right: .10em; }
+.rb-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; column-gap: clamp(18px, 2.5vw, 43px); }
+.rb-nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 510; letter-spacing: -.024em; }
+.rb-nav a:hover, .rb-textlink:hover, .rb-detail-top > div > a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.rb-hero { background: #161616; color: #f7f7f5; }
+.rb-opening { position: relative; padding-block: clamp(52px, 7vw, 112px); }
+.rb-opening h1 { font: 400 clamp(34px, 7.6vw, 120px)/.98 var(--rb-sans); letter-spacing: -.066em; }
+.rb-opening h1 span { display: block; }
+.rb-intro { display: flex; flex-wrap: wrap; gap: 2px 36px; justify-content: space-between; align-items: center; border-top: 1px solid #737373; padding-top: 12px; margin-top: clamp(25px, 4vw, 60px); }
+.rb-intro p { font-size: clamp(15px, 1.4vw, 21px); }
+.rb-intro .rb-textlink { font-size: 15px; }
+.rb-label { font: 600 13px/1.4 var(--rb-sans); letter-spacing: .012em; }
+.rb-practices { border-top: 1px solid var(--rb-ink); padding-block: clamp(25px, 2.4vw, 42px) clamp(40px, 5.9vw, 100px); }
+.rb-arrow { display: inline-grid; place-content: center; flex-shrink: 0; font: 400 .75em/1 var(--rb-sans); letter-spacing: 0; }
+.rb-practices > h2 { font: 400 clamp(34px, 4vw, 60px)/1.1 var(--rb-sans); letter-spacing: -.055em; }
+.rb-practice-intro { max-width: 64ch; margin: 12px 0 32px; color: var(--rb-muted); }
+.rb-practice-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 5vw, 80px); }
+.rb-practice { position: relative; display: flex; flex-direction: column; align-items: start; padding-top: 18px; border-top: 1px solid var(--rb-ink); }
+.rb-practice > span:empty { position: absolute; top: 0; }
+.rb-practice h3 { margin: 0 0 14px; font: 700 clamp(21px, 2.2vw, 34px)/1.15 var(--rb-sans); letter-spacing: -.045em; }
+.rb-practice p { max-width: 54ch; margin: 0 0 18px; }
+.rb-practice .rb-textlink { margin-top: auto; font-size: 14px; text-decoration: underline; text-underline-offset: .25em; }
+.rb-textlink { display: inline-flex; align-items: center; justify-content: flex-start; gap: .65em; min-height: 44px; font: 500 16px/1.4 var(--rb-sans); letter-spacing: -.03em; }
+.rb-textlink .rb-arrow { font-size: 1em; }
+.rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #101010; }
+.rb-ground-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .47; pointer-events: none; }
+.rb-inquiries::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: var(--rb-ink); transform-origin: left; }
+.rb-inquiries { position: relative; display: grid; grid-template-columns: 1fr 2fr; align-items: baseline; padding-block: clamp(66px, 7.4vw, 134px); }
+.rb-inquiries .rb-textlink { justify-self: start; font: 400 clamp(40px, 5.1vw, 82px)/1.08 var(--rb-serif); letter-spacing: -.05em; gap: .45em; }
+.rb-inquiries .rb-arrow { font-size: .65em; }
+.rb-foot { border-top: 1px solid var(--rb-line); padding-block: 28px 42px; }
+.rb-foot .rb-wordmark { font-size: 26px; }
+.rb-foot p { margin-top: 3px; color: var(--rb-muted); font-size: 12px; }
+.rb-detail-top { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); align-items: end; gap: 8%; padding-block: clamp(56px, 7vw, 118px); }
+.rb-detail-top > div > a { display: inline-flex; align-items: center; min-height: 44px; }
+.rb-detail-top h1 { font: 400 clamp(36px, 5.4vw, 83px)/.98 var(--rb-serif); letter-spacing: -.055em; margin: 20px 0 25px; }
+.rb-detail-lead { max-width: 33ch; font-size: clamp(20px, 1.85vw, 32px); line-height: 1.35; letter-spacing: -.035em; }
+.rb-detail-body { display: grid; grid-template-columns: 1.17fr .83fr; gap: 12%; padding-block: 42px 75px; border-top: 1px solid var(--rb-ink); }
+.rb-detail-body p { max-width: 55ch; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.55; letter-spacing: -.018em; }
+.rb-detail-body p + p { margin-top: 1em; }
+.rb-detail-body aside { display: flex; flex-direction: column; align-items: flex-start; }
+@media (max-width: 780px) {
+  .rb-head { min-height: 73px; }
+}
+@media (max-width: 600px) {
+  .corporate-site { --rb-space: clamp(18px, 5.4vw, 30px); }
+  .rb-head { gap: 12px; min-height: 65px; }
+  .rb-wordmark { font-size: 24px; }
+  .rb-nav { column-gap: clamp(9px, 2.4vw, 14px); }
+  .rb-nav a { font-size: 12px; }
+  .rb-practice-pair { grid-template-columns: minmax(0,1fr); }
+  .rb-inquiries { grid-template-columns: 1fr; gap: 19px; padding-block: 45px; }
+  .rb-inquiries .rb-textlink { font-size: clamp(27px, 7vw, 46px); }
+  .rb-foot { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 21px 24px; }
+  .rb-foot .rb-nav { column-gap: 24px; }
+  .rb-detail-top, .rb-detail-body { grid-template-columns: 1fr; }
+  .rb-detail-top { padding-block: 28px; gap: 24px; }
+  .rb-detail-top h1 { margin: 12px 0 18px; font-size: clamp(34px, 9vw, 57px); }
+  .rb-detail-lead { font-size: 21px; }
+  .rb-detail-body { gap: 25px; padding-block: 30px 40px; }
+}
+@media (max-width: 370px) {
+  .rb-head { flex-direction: column; align-items: start; gap: 0; padding-top: 5px; }
+  .rb-head .rb-nav { width: 100%; justify-content: space-between; }
+  .rb-head .rb-nav a { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .corporate-site *, .corporate-site *::before, .corporate-site *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+}
+.rb-contact { display: grid; grid-template-columns: minmax(0, .81fr) minmax(0, 1.19fr); align-items: start; gap: clamp(36px, 8vw, 140px); padding-block: clamp(64px, 8vw, 140px); }
+.rb-contact h1 { font: 400 clamp(58px, 6.5vw, 99px)/.97 var(--rb-serif); letter-spacing: -.055em; }
+.rb-contact-intro p { max-width: 25ch; margin-top: 22px; font-size: clamp(18px, 1.6vw, 25px); line-height: 1.38; letter-spacing: -.035em; }
+.rb-contact form { max-width: 39rem; }
+.rb-contact label { display: block; font-size: 15px; font-weight: 560; margin-bottom: 8px; }
+.rb-contact :is(input:not([type=hidden]), textarea) { width: 100%; font: inherit; color: var(--rb-ink); background: white; border: 1px solid #898989; border-radius: 0; padding: 11px 13px; }
+.rb-contact :is(input, textarea):focus-visible { outline: 2px solid #171717; outline-offset: 2px; }
+.rb-contact textarea { display: block; resize: vertical; min-height: 110px; }
+.rb-contact small { display: block; margin: 6px 0 23px; color: var(--rb-muted); font-size: 13px; }
+.rb-contact button { border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 15px; font-weight: 500; padding: 11px 20px; min-height: 48px; cursor: pointer; margin-top: 24px; }
+.rb-contact button .rb-arrow { margin-left: .6em; font-size: 1em; }
+.rb-contact button:hover { color: var(--rb-ink); background: #fff; }
+.rb-contact [role=status]:not(:empty) { margin-top: 14px; }
+@media (max-width: 650px) {
+  .rb-contact { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-block: 39px 57px; }
+  .rb-contact-intro p { margin-top: 15px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rb-inquiries.arrived::before { animation: inquiry-rule 640ms ease-out both; }
+  .rb-inquiries.arrived .rb-textlink { animation: inquiry-link 560ms ease-out both; }
+  @keyframes inquiry-rule { from { transform: scaleX(.07); } to { transform: scaleX(1); } }
+  @keyframes inquiry-link { from { opacity: .42; transform: translateY(.28em); } to { opacity: 1; transform: none; } }
+}
+
+.rasbash-wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 820;
+  line-height: 1;
+  letter-spacing: -.095em;
+  padding-right: .10em;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+.rasbash-wordmark:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+</style></head>
+    <body class="corporate-site"><a class="corporate-skip" href="#corporate-main">Skip to content</a><header class="rb-head rb-bound"><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><nav class="rb-nav" aria-label="Main navigation"><a href="/#practice">Practice</a><a href="/atlas/">The Corridor</a><a href="/firm/">Firm</a><a href="/contact/">Contact</a></nav></header><main id="corporate-main" tabindex="-1" class="rb-detail rb-bound"><div class="rb-detail-top">
+    <div><a class="rb-label" href="/#reading-positioning">The Practice</a><h1>Positioning and Reputation</h1></div><p class="rb-detail-lead">What do you wish people understood about your position?</p></div>
+    <div class="rb-detail-body"><div><p>We advise on whom to engage and what a public position commits you to.</p><p>That may mean preparing for scrutiny, reconsidering how an institution presents itself or deciding that a matter is best addressed in private.</p></div><aside><a class="rb-textlink" href="/contact/">Discuss a matter <span aria-hidden="true" class="rb-arrow">→</span></a>
+    <a class="rb-textlink" href="/#reading-positioning">The Practice <span aria-hidden="true" class="rb-arrow">→</span></a></aside></div>
+  </main><footer class="rb-foot rb-bound"><div><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><p>Public relations and advisory</p></div><nav class="rb-nav" aria-label="Footer navigation"><a href="/#practice">Practice</a><a href="/atlas/">The Corridor</a><a href="/firm/">Firm</a><a href="/contact/">Contact</a></nav></footer>
+    </body></html>

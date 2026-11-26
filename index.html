@@ -1,0 +1,269 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RASBASH | Public Relations and Advisory</title><meta name="description" content="RASBASH. Public relations and advisory."><meta property="og:title" content="RASBASH | Public Relations and Advisory"><meta property="og:description" content="RASBASH. Public relations and advisory.">
+    <meta name="theme-color" content="#ffffff"><link rel="icon" href="mark.svg">
+    <style id="corporate-styles">@font-face {
+  font-family: 'Courier Prime';
+  src: local('Courier Prime'), url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@5.3.0/latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: local('Courier Prime Bold'), url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@5.3.0/latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('fonts/inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+.corporate-site {
+  --rb-ink: #161616;
+  --rb-muted: #525252;
+  --rb-line: #d3d3d3;
+  --rb-space: clamp(24px, 5.15vw, 96px);
+  --rb-sans: 'Courier Prime', 'Courier New', Courier, monospace;
+  --rb-serif: var(--rb-sans);
+  background: #fff;
+  color: var(--rb-ink);
+  font: 400 16px/1.5 var(--rb-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.corporate-site *, .corporate-site *::before, .corporate-site *::after { box-sizing: border-box; }
+.corporate-site :where(h1, h2, p, ul, figure) { margin: 0; }
+.corporate-site a { color: inherit; text-decoration: none; }
+.corporate-site button { font: inherit; color: inherit; }
+.corporate-site img { display: block; max-width: 100%; }
+.corporate-site [hidden] { display: none !important; }
+.corporate-site :is(a, button):focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.corporate-site main:focus { outline: none; }
+.corporate-skip { position: absolute; z-index: 2; top: 8px; left: var(--rb-space); padding: 10px 16px; background: #fff; transform: translateY(-180%); }
+.corporate-skip:focus { transform: translateY(0); }
+.corporate-site ::selection { background: #d9d9d9; color: #111; }
+.rb-bound { width: min(calc(100% - var(--rb-space) * 2), 1536px); margin-inline: auto; }
+.rb-head, .rb-foot { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.rb-head { min-height: 88px; padding-block: 14px; border-bottom: 1px solid var(--rb-line); }
+.rb-brand p { margin-top: 3px; color: var(--rb-muted); font-size: 12px; line-height: 1.3; }
+.rb-wordmark { display: inline-flex; align-items: center; min-height: 44px; font-size: clamp(26px, 2.5vw, 39px); padding-right: .10em; }
+.rb-head .rb-brand .rb-wordmark { min-height: auto; }
+.rb-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; column-gap: clamp(18px, 2.5vw, 43px); }
+.rb-nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 510; letter-spacing: -.024em; }
+.rb-nav a:hover, .rb-textlink:hover, .rb-detail-top > div > a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.rb-hero { background: #161616; color: #f7f7f5; }
+.rb-opening { position: relative; padding-block: clamp(52px, 7vw, 112px); }
+.rb-opening h1 { font: 400 clamp(34px, 7.6vw, 120px)/.98 var(--rb-sans); letter-spacing: -.066em; }
+.rb-opening h1 span { display: block; }
+.rb-intro { display: flex; flex-wrap: wrap; gap: 2px 36px; justify-content: space-between; align-items: center; border-top: 1px solid #737373; padding-top: 12px; margin-top: clamp(25px, 4vw, 60px); }
+.rb-intro p { font-size: clamp(15px, 1.4vw, 21px); }
+.rb-intro .rb-textlink { font-size: 15px; }
+.rb-label { font: 600 13px/1.4 var(--rb-sans); letter-spacing: .012em; }
+.rb-practices { border-top: 1px solid #0D0D0D; padding-block: clamp(44px, 5vw, 80px) clamp(56px, 7vw, 112px); }
+.rb-arrow { display: inline-grid; place-content: center; flex-shrink: 0; font: 400 .75em/1 var(--rb-sans); letter-spacing: 0; }
+.rb-practice-diagram { display: flex; flex-direction: column; align-items: center; }
+.rb-practice-root { position: relative; text-align: center; padding: 0 0 18px; background: transparent; }
+.rb-practice-root h2 { font: 400 clamp(34px, 4vw, 60px)/1.1 var(--rb-sans); letter-spacing: -.055em; color: #0D0D0D; }
+.rb-practice-intro { max-width: 46ch; margin: 10px auto 0; color: var(--rb-muted); }
+.rb-anchor { position: absolute; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; border: 1.25px solid #0D0D0D; background: #fff; z-index: 2; transition: background-color 140ms ease; }
+.rb-anchor-bottom { bottom: -3.5px; }
+.rb-anchor-top { top: -3.5px; }
+.rb-mindmap-svg { display: block; width: 100%; max-width: 1016px; height: 140px; margin-inline: auto; overflow: visible; }
+.rb-mindmap-curve { fill: none; stroke: #0D0D0D; stroke-width: 1.25; vector-effect: non-scaling-stroke; transition: stroke-width 140ms ease; }
+.rb-practice-pair { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); justify-content: center; gap: 56px; }
+.rb-practice { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid #0D0D0D; padding: clamp(22px, 2.2vw, 30px); background: #fff; transition: box-shadow 140ms ease; }
+.rb-practice > span:empty:not(.rb-anchor) { position: absolute; top: 0; }
+.rb-practice:hover { box-shadow: 4px 4px 0px #0D0D0D; }
+.rb-practice:hover .rb-anchor { background: #0D0D0D; }
+.rb-practice-diagram:has(#reading-awareness:hover) .rb-curve-left,
+.rb-practice-diagram:has(#reading-positioning:hover) .rb-curve-right { stroke-width: 2; }
+.rb-practice h3 { margin: 0 0 12px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; white-space: nowrap; }
+.rb-practice p { max-width: none; margin: 0; font-size: clamp(12px, .95vw, 14px); color: #0D0D0D; background: transparent; white-space: nowrap; }
+.rb-textlink { display: inline-flex; align-items: center; justify-content: flex-start; gap: .65em; min-height: 44px; font: 500 16px/1.4 var(--rb-sans); letter-spacing: -.03em; }
+.rb-textlink .rb-arrow { font-size: 1em; }
+.rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; min-height: clamp(440px, 68vh, 740px); display: flex; align-items: center; }
+.rb-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 10, .32) 0%, rgba(10, 10, 10, .14) 48%, rgba(10, 10, 10, .62) 100%); pointer-events: none; z-index: 1; }
+.rb-hero .rb-opening { z-index: 2; }
+.rb-ground-film { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: contrast(1.06) saturate(.85); pointer-events: none; }
+.rb-inquiries::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: var(--rb-ink); transform-origin: left; }
+.rb-inquiries { position: relative; display: grid; grid-template-columns: 1fr 2fr; align-items: baseline; padding-block: clamp(66px, 7.4vw, 134px); }
+.rb-inquiries .rb-textlink { justify-self: start; font: 400 clamp(40px, 5.1vw, 82px)/1.08 var(--rb-serif); letter-spacing: -.05em; gap: .45em; }
+.rb-inquiries .rb-arrow { font-size: .65em; }
+.rb-foot { border-top: 1px solid var(--rb-line); padding-block: 28px 42px; }
+.rb-foot .rb-wordmark { font-size: 26px; }
+.rb-foot p { margin-top: 3px; color: var(--rb-muted); font-size: 12px; }
+.rb-detail-top { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); align-items: end; gap: 8%; padding-block: clamp(56px, 7vw, 118px); }
+.rb-detail-top > div > a { display: inline-flex; align-items: center; min-height: 44px; }
+.rb-detail-top h1 { font: 400 clamp(36px, 5.4vw, 83px)/.98 var(--rb-serif); letter-spacing: -.055em; margin: 20px 0 25px; }
+.rb-detail-lead { max-width: 33ch; font-size: clamp(20px, 1.85vw, 32px); line-height: 1.35; letter-spacing: -.035em; }
+.rb-detail-body { display: grid; grid-template-columns: 1.17fr .83fr; gap: 12%; padding-block: 42px 75px; border-top: 1px solid var(--rb-ink); }
+.rb-detail-body p { max-width: 55ch; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.55; letter-spacing: -.018em; }
+.rb-detail-body p + p { margin-top: 1em; }
+.rb-detail-body aside { display: flex; flex-direction: column; align-items: flex-start; }
+@media (max-width: 780px) {
+  .rb-head { min-height: 73px; }
+}
+@media (max-width: 767px) {
+  .rb-mindmap-svg { display: none; }
+  .rb-practice-root { width: 100%; max-width: 480px; }
+  .rb-practice-pair { grid-template-columns: minmax(0, 480px); gap: 36px; margin-top: 36px; }
+  .rb-practice::before { content: ""; position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); width: 1.25px; height: 37px; background: #0D0D0D; }
+  .rb-practice h3, .rb-practice p { white-space: normal; }
+}
+@media (max-width: 600px) {
+  .corporate-site { --rb-space: clamp(18px, 5.4vw, 30px); }
+  .rb-head { gap: 12px; min-height: 65px; }
+  .rb-wordmark { font-size: 24px; }
+  .rb-nav { column-gap: clamp(9px, 2.4vw, 14px); }
+  .rb-nav a { font-size: 12px; }
+  .rb-inquiries { grid-template-columns: 1fr; gap: 19px; padding-block: 45px; }
+  .rb-inquiries .rb-textlink { font-size: clamp(27px, 7vw, 46px); }
+  .rb-foot { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 21px 24px; }
+  .rb-foot .rb-nav { column-gap: 24px; }
+  .rb-detail-top, .rb-detail-body { grid-template-columns: 1fr; }
+  .rb-detail-top { padding-block: 28px; gap: 24px; }
+  .rb-detail-top h1 { margin: 12px 0 18px; font-size: clamp(34px, 9vw, 57px); }
+  .rb-detail-lead { font-size: 21px; }
+  .rb-detail-body { gap: 25px; padding-block: 30px 40px; }
+}
+@media (max-width: 370px) {
+  .rb-head { flex-direction: column; align-items: start; gap: 0; padding-top: 5px; }
+  .rb-head .rb-nav { width: 100%; justify-content: space-between; }
+  .rb-head .rb-nav a { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .corporate-site *, .corporate-site *::before, .corporate-site *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+}
+.rb-contact { display: grid; grid-template-columns: minmax(0, .81fr) minmax(0, 1.19fr); align-items: start; gap: clamp(36px, 8vw, 140px); padding-block: clamp(64px, 8vw, 140px); border-top: 1px solid #0D0D0D; }
+.rb-contact :is(h1, h2) { font: 400 clamp(58px, 6.5vw, 99px)/.97 var(--rb-serif); letter-spacing: -.055em; margin: 0; }
+.rb-contact-intro p { max-width: 25ch; margin-top: 22px; font-size: clamp(18px, 1.6vw, 25px); line-height: 1.38; letter-spacing: -.035em; }
+.rb-contact-intro p:first-child { margin-top: 0; }
+.rb-contact form { max-width: 39rem; }
+.rb-contact label { display: block; font-size: 15px; font-weight: 560; margin-bottom: 8px; }
+.rb-contact :is(input:not([type=hidden]), textarea) { width: 100%; font: inherit; color: var(--rb-ink); background: white; border: 1px solid #898989; border-radius: 0; padding: 11px 13px; }
+.rb-contact :is(input, textarea):focus-visible { outline: 2px solid #171717; outline-offset: 2px; }
+.rb-contact textarea { display: block; resize: vertical; min-height: 110px; }
+.rb-contact small { display: block; margin: 6px 0 23px; color: var(--rb-muted); font-size: 13px; }
+.rb-contact button { border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 15px; font-weight: 500; padding: 11px 20px; min-height: 48px; cursor: pointer; margin-top: 24px; }
+.rb-contact button .rb-arrow { margin-left: .6em; font-size: 1em; }
+.rb-contact button:hover { color: var(--rb-ink); background: #fff; }
+.rb-contact [role=status]:not(:empty) { margin-top: 14px; }
+@media (max-width: 650px) {
+  .rb-contact { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-block: 39px 57px; }
+  .rb-contact-intro p { margin-top: 15px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rb-inquiries.arrived::before { animation: inquiry-rule 640ms ease-out both; }
+  .rb-inquiries.arrived .rb-textlink { animation: inquiry-link 560ms ease-out both; }
+  @keyframes inquiry-rule { from { transform: scaleX(.07); } to { transform: scaleX(1); } }
+  @keyframes inquiry-link { from { opacity: .42; transform: translateY(.28em); } to { opacity: 1; transform: none; } }
+}
+
+.rasbash-wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 820;
+  line-height: 1;
+  letter-spacing: -.095em;
+  padding-right: .10em;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+.rasbash-wordmark:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+</style><script>
+    const atlasBookmarks = ["#world-atlas","#connections","#directory","#atlas-heading","#reader","#mapcanvas","#main","#mainbody","#atlas-query","#cover-title","#gateway-heading","#advisory-intro-title","#map-svg"];
+    function restoreAtlasBookmark() {
+      if (atlasBookmarks.includes(location.hash)) {
+        const target = location.hash === '#reader' ? '#world-atlas' : location.hash;
+        location.replace('/atlas/' + location.search + target);
+      }
+    }
+    restoreAtlasBookmark();
+    addEventListener('hashchange', restoreAtlasBookmark);
+  </script></head>
+    <body class="corporate-site"><a class="corporate-skip" href="#corporate-main">Skip to content</a><noscript><style>.atlas-bookmark{display:none}.atlas-bookmark:target{display:block;padding:1em}</style><p class="atlas-bookmark" id="world-atlas"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="connections"><a href="/atlas/#connections">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="directory"><a href="/atlas/#directory">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-heading"><a href="/atlas/#atlas-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="reader"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mapcanvas"><a href="/atlas/#mapcanvas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="main"><a href="/atlas/#main">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mainbody"><a href="/atlas/#mainbody">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-query"><a href="/atlas/#atlas-query">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="cover-title"><a href="/atlas/#cover-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="gateway-heading"><a href="/atlas/#gateway-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="advisory-intro-title"><a href="/atlas/#advisory-intro-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="map-svg"><a href="/atlas/#map-svg">Open this section of The Corridor</a></p></noscript><header class="rb-head rb-bound"><div class="rb-brand"><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><p>Public Relations and Advisory</p></div></header><main id="corporate-main" class="rb-home" tabindex="-1">
+    <section class="rb-hero" aria-labelledby="rb-title">
+      <video class="rb-ground-film" src="art/hero-bg.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+      <div class="rb-opening rb-bound">
+        <h1 id="rb-title"><span>No one sees</span> <span>enough alone</span></h1>
+      </div>
+    </section>
+    <section class="rb-practices rb-bound" id="practice" aria-labelledby="rb-practices-title">
+      <div class="rb-practice-diagram">
+        <div class="rb-practice-root">
+          <h2 id="rb-practices-title">The Practice</h2>
+          <span class="rb-anchor rb-anchor-bottom" aria-hidden="true"></span>
+        </div>
+        <svg class="rb-mindmap-svg" viewBox="0 0 1000 140" preserveAspectRatio="none" aria-hidden="true">
+          <path class="rb-mindmap-curve rb-curve-left" d="M 500 0 C 500 72, 232.3 68, 232.3 140" />
+          <path class="rb-mindmap-curve rb-curve-right" d="M 500 0 C 500 72, 767.7 68, 767.7 140" />
+        </svg>
+        <div class="rb-practice-pair">
+          <article class="rb-practice" id="reading-awareness">
+            <span class="rb-anchor rb-anchor-top" aria-hidden="true"></span>
+            <h3>Situational Awareness</h3>
+            <p>We read the ground and empower your next move</p>
+          </article>
+          <article class="rb-practice" id="reading-positioning">
+            <span id="reading-affairs"></span><span id="reading-response"></span>
+            <span class="rb-anchor rb-anchor-top" aria-hidden="true"></span>
+            <h3>Positioning and Reputation</h3>
+            <p>Where to stand and How to look</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const diagram = document.querySelector('.rb-practice-diagram');
+        const svg = diagram?.querySelector('.rb-mindmap-svg');
+        const leftCurve = svg?.querySelector('.rb-curve-left');
+        const rightCurve = svg?.querySelector('.rb-curve-right');
+        const rootDot = diagram?.querySelector('.rb-practice-root .rb-anchor-bottom');
+        const leftDot = diagram?.querySelector('#reading-awareness .rb-anchor-top');
+        const rightDot = diagram?.querySelector('#reading-positioning .rb-anchor-top');
+        if (!svg || !leftCurve || !rightCurve || !rootDot || !leftDot || !rightDot) return;
+
+        function syncMindMap() {
+          const rect = svg.getBoundingClientRect();
+          if (!rect.width || !rect.height) return;
+          const xOf = (el) => {
+            const r = el.getBoundingClientRect();
+            return ((r.left + r.width / 2 - rect.left) / rect.width) * 1000;
+          };
+          const cx = xOf(rootDot).toFixed(1);
+          const lx = xOf(leftDot).toFixed(1);
+          const rx = xOf(rightDot).toFixed(1);
+          leftCurve.setAttribute('d', `M ${cx} 0 C ${cx} 72, ${lx} 68, ${lx} 140`);
+          rightCurve.setAttribute('d', `M ${cx} 0 C ${cx} 72, ${rx} 68, ${rx} 140`);
+        }
+
+        if ('ResizeObserver' in window) {
+          new ResizeObserver(syncMindMap).observe(diagram);
+        }
+        addEventListener('resize', syncMindMap, { passive: true });
+        syncMindMap();
+      })();
+    </script>
+    <section class="rb-contact rb-bound" id="contact" aria-labelledby="rb-contact-title">
+      <div class="rb-contact-intro"><p id="rb-contact-title">What would you like to discuss with RASBASH?</p></div>
+      <form id="enquiry-form" data-firm-enquiry action="/api/enquiries" method="post">
+        <label for="question">The matter</label>
+        <textarea name="question" id="question" required rows="6" maxlength="4000" aria-describedby="question-limit"></textarea>
+        <small id="question-limit">Up to 4,000 characters</small>
+        <label for="reply">Your email</label>
+        <input id="reply" name="reply" type="email" autocomplete="email" maxlength="254" required>
+        <input type="hidden" id="context" name="context" value="">
+        <input type="hidden" id="request_id" name="request_id" value="">
+        <input type="hidden" name="origin" value="corporate">
+        <button type="submit">Send inquiry <span aria-hidden="true" class="rb-arrow">→</span></button>
+        <p role="status" data-enquiry-status></p>
+      </form>
+    </section>
+  </main><footer class="rb-foot rb-bound"><div><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><p>Public Relations and Advisory</p></div></footer>
+    <script type="module" src="ui/corporate-motion.js?v=786ee3e4fe6316eb"></script><script type="module" src="ui/enquiry-form.js"></script></body></html>
