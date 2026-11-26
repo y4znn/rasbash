@@ -199,15 +199,47 @@
     <section class="rb-contact rb-bound" id="contact" aria-labelledby="rb-contact-title">
       <h2 id="rb-contact-title">What are you looking for?</h2>
       <p class="rb-contact-sub">Leave your email below, we’ll be in touch within 24 hours</p>
-      <form id="enquiry-form" data-firm-enquiry action="/api/enquiries" method="post">
-        <input id="reply" name="reply" type="email" autocomplete="email" maxlength="254" aria-label="Email address" placeholder="Email address" required>
-        <input type="hidden" name="question" value="Email inquiry">
-        <input type="hidden" id="context" name="context" value="">
-        <input type="hidden" id="request_id" name="request_id" value="">
-        <input type="hidden" name="origin" value="corporate">
+      <form id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7baa3c44-0f14-4bcd-9b18-c1be3416aedf">
+        <input type="hidden" name="subject" value="New RASBASH Inquiry">
+        <input type="hidden" name="from_name" value="RASBASH Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input id="reply" name="email" type="email" autocomplete="email" maxlength="254" aria-label="Email address" placeholder="Email address" required>
         <button type="submit" aria-label="Send"><span aria-hidden="true" class="rb-arrow">→</span></button>
         <p role="status" data-enquiry-status></p>
       </form>
     </section>
   </main><footer class="rb-foot rb-bound"><div><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><p>Public Relations and Advisory</p></div></footer>
-    <script type="module" src="ui/corporate-motion.js?v=786ee3e4fe6316eb"></script><script type="module" src="ui/enquiry-form.js"></script></body></html>
+    <script type="module" src="ui/corporate-motion.js?v=786ee3e4fe6316eb"></script>
+    <script>
+      (function () {
+        const form = document.getElementById('enquiry-form');
+        if (!form) return;
+        form.addEventListener('submit', async (ev) => {
+          ev.preventDefault();
+          const button = form.querySelector('button[type="submit"]');
+          const status = form.querySelector('[role="status"]');
+          if (button.disabled) return;
+          button.disabled = true;
+          status.textContent = 'Sending…';
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: new FormData(form)
+            });
+            const data = await response.json();
+            if (response.ok && data.success) {
+              form.reset();
+              status.textContent = 'Received. We’ll be in touch within 24 hours.';
+            } else {
+              status.textContent = data.message || 'Could not send your email. Please try again.';
+            }
+          } catch {
+            status.textContent = 'Could not send your email. Please try again.';
+          } finally {
+            button.disabled = false;
+          }
+        });
+      })();
+    </script></body></html>
