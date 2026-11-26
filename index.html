@@ -131,8 +131,8 @@
 .rb-contact input[type=email] { display: block; width: 100%; font: inherit; font-size: 15px; color: var(--rb-ink); background: transparent; border: none; border-bottom: 1px solid #0D0D0D; border-radius: 0; padding: 10px 0 8px; line-height: 1.5; }
 .rb-contact input[type=email]::placeholder { color: #8a8a8a; }
 .rb-contact input[type=email]:focus { outline: none; border-bottom: 2px solid #0D0D0D; }
-.rb-contact button { border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 15px; font-weight: 500; padding: 11px 20px; min-height: 48px; cursor: pointer; margin-top: 24px; }
-.rb-contact button .rb-arrow { margin-left: .6em; font-size: 1em; }
+.rb-contact button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 16px; font-weight: 500; padding: 11px 18px; min-height: 48px; cursor: pointer; margin-top: 24px; }
+.rb-contact button .rb-arrow { margin-left: 0; font-size: 1em; }
 .rb-contact button:hover { color: var(--rb-ink); background: #fff; }
 .rb-contact [role=status]:not(:empty) { margin-top: 14px; }
 @media (max-width: 650px) {
@@ -205,7 +205,7 @@
         <input type="hidden" id="context" name="context" value="">
         <input type="hidden" id="request_id" name="request_id" value="">
         <input type="hidden" name="origin" value="corporate">
-        <button type="submit" hidden>Send</button>
+        <button type="submit" aria-label="Send"><span aria-hidden="true" class="rb-arrow">→</span></button>
         <p role="status" data-enquiry-status></p>
       </form>
     </section>
