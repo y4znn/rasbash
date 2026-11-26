@@ -127,10 +127,12 @@
 .rb-contact { display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding-block: clamp(32px, 4vw, 64px) clamp(56px, 7vw, 112px); }
 .rb-contact h2 { margin: 0 0 10px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; }
 .rb-contact-sub { margin: 0 0 28px; font-size: clamp(12px, .95vw, 14px); color: var(--rb-muted); }
-.rb-contact form { width: 100%; max-width: 24rem; }
-.rb-contact input[type=email] { display: block; width: 100%; font: inherit; font-size: 15px; color: var(--rb-ink); background: transparent; border: none; border-bottom: 1px solid #0D0D0D; border-radius: 0; padding: 10px 0 8px; line-height: 1.5; }
-.rb-contact input[type=email]::placeholder { color: #8a8a8a; }
-.rb-contact input[type=email]:focus { outline: none; border-bottom: 2px solid #0D0D0D; }
+.rb-contact form { width: 100%; max-width: 28rem; }
+.rb-contact .rb-step + .rb-step { margin-top: 20px; animation: rb-step-in 220ms ease-out; }
+@keyframes rb-step-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rb-contact .rb-line-input { display: block; width: 100%; font: inherit; font-size: 15px; color: var(--rb-ink); background: transparent; border: none; border-bottom: 1px solid #0D0D0D; border-radius: 0; padding: 10px 0 8px; line-height: 1.5; }
+.rb-contact .rb-line-input::placeholder { color: #8a8a8a; }
+.rb-contact .rb-line-input:focus { outline: none; border-bottom: 2px solid #0D0D0D; }
 .rb-contact button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 16px; font-weight: 500; padding: 11px 18px; min-height: 48px; cursor: pointer; margin-top: 24px; }
 .rb-contact button .rb-arrow { margin-left: 0; font-size: 1em; }
 .rb-contact button:hover { color: var(--rb-ink); background: #fff; }
@@ -204,7 +206,15 @@
         <input type="hidden" name="subject" value="New RASBASH Inquiry">
         <input type="hidden" name="from_name" value="RASBASH Website">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <input id="reply" name="email" type="email" autocomplete="email" maxlength="254" aria-label="Email address" placeholder="Email address" required>
+        <div class="rb-step" data-step="1">
+          <input id="reply" class="rb-line-input" name="contact" type="text" autocomplete="email" maxlength="254" aria-label="Email address, phone number, or Signal username" placeholder="Email address / Phone number / Signal username" required>
+        </div>
+        <div class="rb-step" data-step="2" hidden>
+          <input id="full-name" class="rb-line-input" name="name" type="text" autocomplete="name" maxlength="160" aria-label="Full name" placeholder="Full name">
+        </div>
+        <div class="rb-step" data-step="3" hidden>
+          <input id="organisation" class="rb-line-input" name="organization" type="text" autocomplete="organization" maxlength="160" aria-label="Organisation name" placeholder="Organisation name">
+        </div>
         <button type="submit" aria-label="Send"><span aria-hidden="true" class="rb-arrow">→</span></button>
         <p role="status" data-enquiry-status></p>
       </form>
@@ -215,10 +225,36 @@
       (function () {
         const form = document.getElementById('enquiry-form');
         if (!form) return;
+        const step2 = form.querySelector('[data-step="2"]');
+        const step3 = form.querySelector('[data-step="3"]');
+        const contactInput = document.getElementById('reply');
+        const nameInput = document.getElementById('full-name');
+        const orgInput = document.getElementById('organisation');
+        let stage = 1;
+
         form.addEventListener('submit', async (ev) => {
           ev.preventDefault();
           const button = form.querySelector('button[type="submit"]');
           const status = form.querySelector('[role="status"]');
+          status.textContent = '';
+
+          if (stage === 1) {
+            if (!contactInput.value.trim()) { contactInput.reportValidity(); return; }
+            stage = 2;
+            step2.hidden = false;
+            nameInput.required = true;
+            nameInput.focus();
+            return;
+          }
+          if (stage === 2) {
+            if (!nameInput.value.trim()) { nameInput.reportValidity(); return; }
+            stage = 3;
+            step3.hidden = false;
+            orgInput.required = true;
+            orgInput.focus();
+            return;
+          }
+          if (!orgInput.value.trim()) { orgInput.reportValidity(); return; }
           if (button.disabled) return;
           button.disabled = true;
           status.textContent = 'Sending…';
@@ -231,12 +267,17 @@
             const data = await response.json();
             if (response.ok && data.success) {
               form.reset();
+              stage = 1;
+              step2.hidden = true;
+              step3.hidden = true;
+              nameInput.required = false;
+              orgInput.required = false;
               status.textContent = 'Received. We’ll be in touch within 24 hours.';
             } else {
-              status.textContent = data.message || 'Could not send your email. Please try again.';
+              status.textContent = data.message || 'Could not send your submission. Please try again.';
             }
           } catch {
-            status.textContent = 'Could not send your email. Please try again.';
+            status.textContent = 'Could not send your submission. Please try again.';
           } finally {
             button.disabled = false;
           }
