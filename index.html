@@ -72,14 +72,18 @@
 .rb-mindmap-svg { display: block; width: 100%; max-width: 1016px; height: 140px; margin-inline: auto; overflow: visible; }
 .rb-mindmap-curve { fill: none; stroke: #0D0D0D; stroke-width: 1.25; vector-effect: non-scaling-stroke; transition: stroke-width 140ms ease; }
 .rb-practice-pair { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); justify-content: center; gap: 56px; }
-.rb-practice { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid #0D0D0D; padding: clamp(22px, 2.2vw, 30px); background: #fff; transition: box-shadow 140ms ease; }
+.rb-practice { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; border: none; padding: 18px 12px 8px; background: transparent; }
 .rb-practice > span:empty:not(.rb-anchor) { position: absolute; top: 0; }
-.rb-practice:hover { box-shadow: 4px 4px 0px #0D0D0D; }
 .rb-practice:hover .rb-anchor { background: #0D0D0D; }
 .rb-practice-diagram:has(#reading-awareness:hover) .rb-curve-left,
 .rb-practice-diagram:has(#reading-positioning:hover) .rb-curve-right { stroke-width: 2; }
 .rb-practice h3 { margin: 0 0 12px; font: 700 clamp(16px, 1.45vw, 22px)/1.2 var(--rb-sans); letter-spacing: -.045em; color: #0D0D0D; white-space: nowrap; }
-.rb-practice p { max-width: none; margin: 0; font-size: clamp(12px, .95vw, 14px); color: #0D0D0D; background: transparent; white-space: nowrap; }
+.rb-practice p { max-width: none; min-height: 1.5em; margin: 0; font-size: clamp(12px, .95vw, 14px); color: #0D0D0D; background: transparent; white-space: nowrap; }
+.rb-tagline-band { position: relative; isolation: isolate; width: 100%; padding: clamp(24px, 3vw, 42px) var(--rb-space); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: rgba(22, 22, 22, .08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.rb-tagline-band::before { content: ""; position: absolute; inset: -14px -24px; z-index: -1; background: linear-gradient(180deg, rgba(13, 13, 13, .22) 0%, rgba(13, 13, 13, .12) 50%, rgba(13, 13, 13, .22) 100%); filter: blur(16px); pointer-events: none; }
+.rb-band-text { font: 400 clamp(20px, 2.8vw, 42px)/1.2 var(--rb-sans); letter-spacing: -.04em; color: #0D0D0D; min-height: 1.2em; margin: 0; }
+[data-typewriter].is-typing::after { content: ""; display: inline-block; width: 2px; height: .95em; margin-left: 3px; vertical-align: -.1em; background: currentColor; animation: rb-caret 700ms steps(1) infinite; }
+@keyframes rb-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 .rb-textlink { display: inline-flex; align-items: center; justify-content: flex-start; gap: .65em; min-height: 44px; font: 500 16px/1.4 var(--rb-sans); letter-spacing: -.03em; }
 .rb-textlink .rb-arrow { font-size: 1em; }
 .rb-hero { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; min-height: clamp(440px, 68vh, 740px); display: flex; align-items: center; }
@@ -135,22 +139,24 @@
 @media (prefers-reduced-motion: reduce) {
   .corporate-site *, .corporate-site *::before, .corporate-site *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
 }
-.rb-contact { display: grid; grid-template-columns: minmax(0, .81fr) minmax(0, 1.19fr); align-items: start; gap: clamp(36px, 8vw, 140px); padding-block: clamp(64px, 8vw, 140px); border-top: 1px solid #0D0D0D; }
+.rb-contact { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); align-items: start; gap: clamp(24px, 4vw, 64px); padding-block: clamp(64px, 8vw, 120px); border-top: 1px solid #0D0D0D; }
 .rb-contact :is(h1, h2) { font: 400 clamp(58px, 6.5vw, 99px)/.97 var(--rb-serif); letter-spacing: -.055em; margin: 0; }
+.rb-contact-intro { padding-top: 30px; }
 .rb-contact-intro p { max-width: 25ch; margin-top: 22px; font-size: clamp(18px, 1.6vw, 25px); line-height: 1.38; letter-spacing: -.035em; }
 .rb-contact-intro p:first-child { margin-top: 0; }
-.rb-contact form { max-width: 39rem; }
+.rb-contact form { width: 100%; max-width: 39rem; }
 .rb-contact label { display: block; font-size: 15px; font-weight: 560; margin-bottom: 8px; }
-.rb-contact :is(input:not([type=hidden]), textarea) { width: 100%; font: inherit; color: var(--rb-ink); background: white; border: 1px solid #898989; border-radius: 0; padding: 11px 13px; }
+.rb-contact :is(input:not([type=hidden]), textarea) { width: 100%; height: 48px; font: inherit; color: var(--rb-ink); background: white; border: 1px solid #898989; border-radius: 0; padding: 11px 13px; line-height: 1.5; }
 .rb-contact :is(input, textarea):focus-visible { outline: 2px solid #171717; outline-offset: 2px; }
-.rb-contact textarea { display: block; resize: vertical; min-height: 110px; }
-.rb-contact small { display: block; margin: 6px 0 23px; color: var(--rb-muted); font-size: 13px; }
+.rb-contact textarea { display: block; resize: none; min-height: 48px; overflow-y: auto; }
+.rb-contact small { display: block; margin: 6px 0 20px; color: var(--rb-muted); font-size: 13px; }
 .rb-contact button { border: 1px solid var(--rb-ink); background: var(--rb-ink); color: #fff; font-size: 15px; font-weight: 500; padding: 11px 20px; min-height: 48px; cursor: pointer; margin-top: 24px; }
 .rb-contact button .rb-arrow { margin-left: .6em; font-size: 1em; }
 .rb-contact button:hover { color: var(--rb-ink); background: #fff; }
 .rb-contact [role=status]:not(:empty) { margin-top: 14px; }
 @media (max-width: 650px) {
-  .rb-contact { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-block: 39px 57px; }
+  .rb-contact { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 39px 57px; }
+  .rb-contact-intro { padding-top: 0; }
   .rb-contact-intro p { margin-top: 15px; }
 }
 
@@ -186,12 +192,12 @@
     restoreAtlasBookmark();
     addEventListener('hashchange', restoreAtlasBookmark);
   </script></head>
-    <body class="corporate-site"><a class="corporate-skip" href="#corporate-main">Skip to content</a><noscript><style>.atlas-bookmark{display:none}.atlas-bookmark:target{display:block;padding:1em}</style><p class="atlas-bookmark" id="world-atlas"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="connections"><a href="/atlas/#connections">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="directory"><a href="/atlas/#directory">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-heading"><a href="/atlas/#atlas-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="reader"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mapcanvas"><a href="/atlas/#mapcanvas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="main"><a href="/atlas/#main">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mainbody"><a href="/atlas/#mainbody">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-query"><a href="/atlas/#atlas-query">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="cover-title"><a href="/atlas/#cover-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="gateway-heading"><a href="/atlas/#gateway-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="advisory-intro-title"><a href="/atlas/#advisory-intro-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="map-svg"><a href="/atlas/#map-svg">Open this section of The Corridor</a></p></noscript><header class="rb-head rb-bound"><div class="rb-brand"><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a><p>Public Relations and Advisory</p></div></header><main id="corporate-main" class="rb-home" tabindex="-1">
-    <section class="rb-hero" aria-labelledby="rb-title">
+    <body class="corporate-site"><a class="corporate-skip" href="#corporate-main">Skip to content</a><noscript><style>.atlas-bookmark{display:none}.atlas-bookmark:target{display:block;padding:1em}</style><p class="atlas-bookmark" id="world-atlas"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="connections"><a href="/atlas/#connections">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="directory"><a href="/atlas/#directory">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-heading"><a href="/atlas/#atlas-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="reader"><a href="/atlas/#world-atlas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mapcanvas"><a href="/atlas/#mapcanvas">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="main"><a href="/atlas/#main">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="mainbody"><a href="/atlas/#mainbody">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="atlas-query"><a href="/atlas/#atlas-query">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="cover-title"><a href="/atlas/#cover-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="gateway-heading"><a href="/atlas/#gateway-heading">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="advisory-intro-title"><a href="/atlas/#advisory-intro-title">Open this section of The Corridor</a></p><p class="atlas-bookmark" id="map-svg"><a href="/atlas/#map-svg">Open this section of The Corridor</a></p></noscript><header class="rb-head rb-bound"><div class="rb-brand"><a class="rasbash-wordmark rb-wordmark" href="/" aria-label="RASBASH home">RASBASH</a></div></header><main id="corporate-main" class="rb-home" tabindex="-1">
+    <section class="rb-hero" aria-label="RASBASH film">
       <video class="rb-ground-film" src="art/hero-bg.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
-      <div class="rb-opening rb-bound">
-        <h1 id="rb-title"><span>No one sees</span> <span>enough alone</span></h1>
-      </div>
+    </section>
+    <section class="rb-tagline-band" aria-labelledby="rb-title">
+      <h1 id="rb-title" class="rb-band-text" data-typewriter="No one sees enough alone">No one sees enough alone</h1>
     </section>
     <section class="rb-practices rb-bound" id="practice" aria-labelledby="rb-practices-title">
       <div class="rb-practice-diagram">
@@ -207,13 +213,13 @@
           <article class="rb-practice" id="reading-awareness">
             <span class="rb-anchor rb-anchor-top" aria-hidden="true"></span>
             <h3>Situational Awareness</h3>
-            <p>We read the ground and empower your next move</p>
+            <p data-typewriter="We read the ground and empower your next move">We read the ground and empower your next move</p>
           </article>
           <article class="rb-practice" id="reading-positioning">
             <span id="reading-affairs"></span><span id="reading-response"></span>
             <span class="rb-anchor rb-anchor-top" aria-hidden="true"></span>
             <h3>Positioning and Reputation</h3>
-            <p>Where to stand and How to look</p>
+            <p data-typewriter="Where to stand and How to look">Where to stand and How to look</p>
           </article>
         </div>
       </div>
@@ -249,12 +255,45 @@
         addEventListener('resize', syncMindMap, { passive: true });
         syncMindMap();
       })();
+      (function () {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.querySelectorAll('[data-typewriter]').forEach((el, idx) => {
+          const text = el.getAttribute('data-typewriter') || el.textContent.trim();
+          el.setAttribute('aria-label', text);
+          el.classList.add('is-typing');
+          el.textContent = '';
+          let pos = 0;
+          let deleting = false;
+          function tick() {
+            if (!deleting) {
+              pos += 1;
+              el.textContent = text.slice(0, pos);
+              if (pos >= text.length) {
+                deleting = true;
+                setTimeout(tick, 1800);
+                return;
+              }
+              setTimeout(tick, 60);
+            } else {
+              pos -= 1;
+              el.textContent = text.slice(0, pos);
+              if (pos <= 0) {
+                deleting = false;
+                setTimeout(tick, 450);
+                return;
+              }
+              setTimeout(tick, 30);
+            }
+          }
+          setTimeout(tick, 250 + idx * 350);
+        });
+      })();
     </script>
     <section class="rb-contact rb-bound" id="contact" aria-labelledby="rb-contact-title">
-      <div class="rb-contact-intro"><p id="rb-contact-title">What would you like to discuss with RASBASH?</p></div>
+      <div class="rb-contact-intro"><p id="rb-contact-title">What are you looking for?</p></div>
       <form id="enquiry-form" data-firm-enquiry action="/api/enquiries" method="post">
         <label for="question">The matter</label>
-        <textarea name="question" id="question" required rows="6" maxlength="4000" aria-describedby="question-limit"></textarea>
+        <textarea name="question" id="question" required rows="1" maxlength="4000" aria-describedby="question-limit"></textarea>
         <small id="question-limit">Up to 4,000 characters</small>
         <label for="reply">Your email</label>
         <input id="reply" name="reply" type="email" autocomplete="email" maxlength="254" required>
