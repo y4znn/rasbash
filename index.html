@@ -235,14 +235,30 @@
         const orgInput = document.getElementById('organisation');
         let stage = 1;
 
+        function isValidContact(val) {
+          const v = val.trim();
+          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+          const digits = v.replace(/\D/g, '');
+          const phoneOk = /^\+?[\d\s().-]+$/.test(v) && digits.length >= 7 && digits.length <= 15;
+          return emailOk || phoneOk;
+        }
+
+        contactInput.addEventListener('input', () => contactInput.setCustomValidity(''));
+
         form.addEventListener('submit', async (ev) => {
           ev.preventDefault();
           const button = form.querySelector('button[type="submit"]');
           const status = form.querySelector('[role="status"]');
           status.textContent = '';
 
+          if (!isValidContact(contactInput.value)) {
+            contactInput.setCustomValidity('Please enter a valid email address or phone number.');
+            contactInput.reportValidity();
+            return;
+          }
+          contactInput.setCustomValidity('');
+
           if (stage === 1) {
-            if (!contactInput.value.trim()) { contactInput.reportValidity(); return; }
             stage = 2;
             step2.hidden = false;
             nameInput.required = true;
